@@ -1,0 +1,68 @@
+//wjoras REPOSITORIO GITHUB 
+#include <stdio.h>
+
+int main() {
+     
+    int opcao;
+    float num1, num2;
+    
+    
+    /*Resolvi deixar essa apresentacao fora do DO WHILE para aparecer somente a primeira vez*/
+     printf("Nome:           Welison Joras dos Santos\nCurso:          Analise e desenvolvimento de sistemas\nUniversidade:   Unilasalle Canoas\nMatricula:      202220473");
+    
+    do {
+        
+    /*Usei repeticao para poder usar a calculadora mais de 1x sem precisar fechar o programa*/
+
+    printf("\n\nAdicao(1)\nSubtracao(2)\nMultiplicacao(3)\nDivisao(4)\nElevar a potencia(5)\nRaiz quadrada(6)\n");
+    printf("Qual operacao deseja realizar?");
+    scanf("%d", &opcao);
+    
+    /*Parte que estava verificando se a pessoa queria calcular raiz quadrada que usa apenas 1 variavel ou o resto das operacao que precisa de 2 variaveis*/
+        if(opcao > 0 && opcao < 6){
+            printf("\n\nDigite os dois valores:");
+            scanf("%f%f", &num1, &num2);
+        };
+        if(opcao == 6) {
+            printf("\n\nDigite o valor:");
+            scanf("%f", &num1);
+        };
+        
+        switch(opcao) {
+            case 1: 
+                printf("Soma: %.2f\n", num1 + num2);
+                break;
+            case 2: 
+                printf("Subtracao: %.2f\n", num1 - num2);
+                break;
+            case 3: 
+                printf("Multiplicacao: %.2f\n", num1 * num2);
+                break;
+            case 4: 
+                while(num2 == 0) {
+                printf("Nao existe divisao por zero!\nDigite outro valor: ");
+                scanf("%f", &num2);
+                }
+                printf("Divisao: %.2f\n", num1 + num2);
+                break;
+            case 5: 
+                printf("Elevar a potencia: %.2f\n", pow(num1,num2));
+                break;
+            case 6: 
+                printf("Raiz quadrada: %.2f\n", sqrt(num1));
+                break;
+            default:
+            printf("opcao invalida\n");
+        };
+        /*Aqui to usando scanf pra pegar a resposta da pessoa se quer usar novamente a calculadora assim alterando o valor da variavel opcao, parando ou nao o "do while" */
+        printf("Deseja utilizar a calculadora novamente? sim(1)/nao(0)");
+        scanf("%f", &opcao);
+        
+        if(opcao == 0) {
+          printf("Obrigado e até logo!");
+        };
+        
+    } while(opcao != 0 );
+
+    return 0;
+}
